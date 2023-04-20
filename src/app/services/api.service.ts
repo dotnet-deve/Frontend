@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl:string = "https://localhost:5001/api/User/";
+  private baseUrl:string = "http://localhost:5000/api/User";
   constructor(private http: HttpClient) { }
 
   getAllUsers(){
-    return this.http.get<any>(this.baseUrl);
+    return this.http.get<any>("http://localhost:5000/api/User");
   }
 }
