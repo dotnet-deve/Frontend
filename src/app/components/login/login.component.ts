@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+      tokenExpiryTime:[0,Validators.required]
     });
   }
 
@@ -47,7 +48,8 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.loginForm.value).subscribe({
         next: (res) => {
           //alert(res.message);
-          this.auth.storeToken(res.token);
+          this.auth.storeToken(res.accessToken);
+          this.auth.storeRefreshToken(res.refreshToken);
           this.toast.success({detail:"SUCCESS!", summary:res.message, duration:5000});
           this.loginForm.reset();
           this.router.navigate(['/dashboard']);

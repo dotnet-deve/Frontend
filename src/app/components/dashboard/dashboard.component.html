@@ -1,7 +1,18 @@
 
-<button (click)="logout()" class="btn btn-danger">Logout</button>
-<h1>Hello Dashboard</h1>
+<!-- <button (click)="logout()" class="btn btn-danger">Logout</button> -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">AngularAuth</a>
+      <div>
+        <h4>Hello {{fullName}}</h4>
+      </div>
+    </div>
+  </nav>
 
 <ul *ngFor="let user of users">
     <li>{{user.username}}</li>
+</ul>
+<ul>
+    <li>{{role}}</li>
+    <li>{{expiryTime}}</li>
 </ul>
